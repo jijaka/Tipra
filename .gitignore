@@ -1,1 +1,6 @@
+TPR_GUI/debug/
+TPR_GUI/release/
+tmp/
+ipch/
 Makefile*
+*.pdb

@@ -1,6 +1,7 @@
 #ifndef TPR_GUI_MAINPANEL_H
 #define TPR_GUI_MAINPANEL_H
 
+#include "TPR_GUI_PreferencesTab.h"
 #include <QTabWidget>
 
 class TPR_GUI_MainPanel : public QTabWidget
