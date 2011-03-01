@@ -1,6 +1,9 @@
-TPR_GUI/debug/
-TPR_GUI/release/
-tmp/
-ipch/
-Makefile*
-*.pdb
+#Ignore everything
+*
+
+#Except...
+!*.cpp
+!*.h
+!*.pro
+!*.bat
+!*.sln
