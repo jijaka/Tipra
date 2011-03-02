@@ -1,9 +1,9 @@
 Tipra - Tiny printer assistant project.
 =============
 Set of applications written for specific needs of the customer: 
- * a secure and precise monitoring of printers activity;
- * lightweight and use as little system resources as possible;
- * windows platform;
+* a secure and precise monitoring of printers activity;
+* lightweight and use as little system resources as possible;
+* windows platform;
 
 Environment
 -------
@@ -18,11 +18,11 @@ Before build
 * Install git.
 * Create account in the github and follow the instructions for creating a public key.
 * Personalize your git in git-bash: 
-	git config --global user.name "Bobby"
-	git config --global user.email bobby@jmail.com
+		git config --global user.name "Bobby"
+		git config --global user.email bobby@jmail.com
 * Clone your copy of the Tipra (use git-bash):
-	cd C:\MyProjects\ #Do not create folder called "Tipra" here!
-	git clone git://github.com/jijaka/Tipra.git
+		cd C:\MyProjects\ #Do not create folder called "Tipra" here!
+		git clone git://github.com/jijaka/Tipra.git
 * check all paths in Tipra/tipra.bat and run it.	
 * Also: send me your public part of the ssh key, and I will give you rights to modify changes.
 
