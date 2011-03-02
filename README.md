@@ -1,9 +1,10 @@
 Tipra - Tiny printer assistant project.
 =============
 Set of applications written for specific needs of the customer: 
-	* a secure and precise monitoring of printers activity;
-	* lightweight and use as little system resources as possible;
-	* windows platform;
+
+* a secure and precise monitoring of printers activity;
+* lightweight and use as little system resources as possible;
+* windows platform;
 
 Environment
 -------
