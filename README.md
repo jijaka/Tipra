@@ -29,10 +29,13 @@ Before build
 
 Build
 -------	
-in tipra.bat
-    cd TPR_GUI
-	qmake -tp vc TPR_GUI.pro
+in tipra.bat (Check paths in tipra.bat before!)
+	#Create makefiles
+    C:\Development\Tipra>qmake -r Tipra.pro
 	# Here you can type nmake to build project in console.
+	
+	#Generate .vcxprojs:
+	C:\Development\Tipra>qmake -r Tipra.pro -tp vc
 Start VC2010 (double click on Tipra.sln) and use regular Project->Build and run.
 
 
