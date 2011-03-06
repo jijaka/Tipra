@@ -9,7 +9,7 @@ TPR_GUI_App::TPR_GUI_App()
     m_pAppMenu = NULL;
     m_pTrayIcon = NULL;
     m_pReportPannel = NULL;
-    QIcon icon("C:/Development/Tipra/etc/icon_red.png");
+    QIcon icon("C:/Development/Tipra/etc/icon_printer.png");
     m_pTrayIcon = new QSystemTrayIcon(icon);
     createMenu();
     m_pTrayIcon->show();
