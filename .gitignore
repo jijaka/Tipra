@@ -8,3 +8,5 @@
 !*.bat
 !*.sln
 !README.md
+!tpr_bank
+!*.pri

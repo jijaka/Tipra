@@ -1,11 +1,15 @@
-# -------------------------------------------------
-# Project created by QtCreator 2011-02-13T09:10:53
-# -------------------------------------------------
+
+! include( $$(TPR_SRC)/common.pri ) {
+    error( Couldn't find the common.pri file! )
+}
 TARGET = TPR_GUI
 TEMPLATE = app
 SOURCES += main.cpp \
-    TPR_GUI_MainPanel.cpp \
+    TPR_GUI_ReportPanel.cpp \
     TPR_GUI_PreferencesTab.cpp
-HEADERS += TPR_GUI_MainPanel.h \
+HEADERS += TPR_GUI_ReportPanel.h \
     TPR_GUI_PreferencesTab.h \
     TPR_GUI_common.h
+	
+Debug:LIBS += -L$$(TPR_SRC)/tmp/Debug -lTPR_Bank
+Release:LIBS += -L$$(TPR_SRC)/tmp/Release -lTPR_Bank

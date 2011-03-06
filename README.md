@@ -25,7 +25,7 @@ Before build
 		cd C:\MyProjects\ #Do not create folder called "Tipra" here!
 		git clone git://github.com/jijaka/Tipra.git
 * check all paths in Tipra/tipra.bat and run it.	
-* Also: send me your public part of the ssh key, and I will give you rights to modify changes.
+* Also: send me your public part of the ssh key to get commit permissions.
 
 Build
 -------	
