@@ -1,12 +1,11 @@
-#Ignore everything
-*
-
-#Except...
-!*.cpp
-!*.h
-!*.pro
-!*.bat
-!*.sln
-!README.md
-!tpr_bank
-!*.pri
+#Ignore generated files.
+tmp/
+ipch/
+tipra-0.2/
+Makefile*
+*.suo
+*.sdf
+*.sql
+*.vc*
+*.pdb
+*.opensdf
