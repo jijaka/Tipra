@@ -4,6 +4,8 @@
 #include <QLayout>
 #include <QLabel>
 #include <QTextEdit>
+#include <QDateTime>
+#include <iostream>
 
 
 TPR_GUI_ReportPanel::TPR_GUI_ReportPanel(QWidget *parent)
@@ -34,8 +36,6 @@ void TPR_GUI_ReportPanel::initialize()
 	//Test
 	m_pTestList =  new QListWidget();
 	pVLay->addWidget(m_pTestList);
-	m_pDaoTipra = new TPR_Bank_Dao ( "C:/Development/Tipra/etc/tpr_bank.db" );
-	m_pTestList->addItems(m_pDaoTipra->getPrintersNames());
 	
 	//Month from 
 	QHBoxLayout* pHFromLay = new QHBoxLayout();
