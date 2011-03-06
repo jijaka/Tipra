@@ -5,7 +5,7 @@
 #include <QLabel>
 #include <QTextEdit>
 #include <QDateTime>
-#include <iostream>
+#include <QCloseEvent>
 
 
 TPR_GUI_ReportPanel::TPR_GUI_ReportPanel(QWidget *parent)
@@ -41,3 +41,9 @@ void TPR_GUI_ReportPanel::initialize()
 	QHBoxLayout* pHFromLay = new QHBoxLayout();
     setLayout(pVLay);
 }
+
+ void TPR_GUI_ReportPanel::closeEvent(QCloseEvent *event)
+ {
+     hide();
+     event->ignore();
+ }

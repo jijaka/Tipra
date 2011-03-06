@@ -4,10 +4,11 @@
 }
 TARGET = TPR_GUI
 TEMPLATE = app
-SOURCES += main.cpp \
+SOURCES += TPR_GUI_App.cpp \
     TPR_GUI_ReportPanel.cpp \
     TPR_GUI_PreferencesTab.cpp
-HEADERS += TPR_GUI_ReportPanel.h \
+HEADERS += TPR_GUI_App.h \
+    TPR_GUI_ReportPanel.h \
     TPR_GUI_PreferencesTab.h \
     TPR_GUI_common.h
 	

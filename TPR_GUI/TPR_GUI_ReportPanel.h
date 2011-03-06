@@ -14,9 +14,13 @@ class TPR_GUI_ReportPanel : public QWidget
 public:
     TPR_GUI_ReportPanel(QWidget *parent = 0);
     virtual ~TPR_GUI_ReportPanel();
-    
+
+protected:
+     void closeEvent(QCloseEvent *event);  
+
 private:
     void initialize();
+
 private:
 	QListWidget* m_pTestList;
 	TPR_Bank_Dao* m_pDaoTipra;
