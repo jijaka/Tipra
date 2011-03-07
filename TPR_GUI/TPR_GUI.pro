@@ -3,7 +3,6 @@
 }
 
 QT += gui
-
 TARGET = TPR_GUI
 TEMPLATE = app
 SOURCES += TPR_GUI_App.cpp \

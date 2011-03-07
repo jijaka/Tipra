@@ -4,7 +4,7 @@
 
 int main()
 {
-	LPCTSTR strPrinter = L"Epson Stylus COLOR 670 ESC/P 2";
+	LPCTSTR strPrinter = L"Microsoft XPS Document Writer";
 	TPR_Daemon_Watcher myWatcher(strPrinter);
 	myWatcher.Watch();
 	std::cout << "Watching" << std::endl;

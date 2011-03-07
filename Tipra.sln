@@ -3,8 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TPR_Bank", "TPR_Bank\TPR_Bank.vcxproj", "{67FBD4BD-8504-359D-8272-1586C9765D09}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TPR_GUI", "TPR_GUI\TPR_GUI.vcxproj", "{8EAE3A27-3F50-3947-8FB1-9F9A09A75596}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67FBD4BD-8504-359D-8272-1586C9765D09} = {67FBD4BD-8504-359D-8272-1586C9765D09}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TPR_Daemon", "TPR_Daemon\TPR_Daemon.vcxproj", "{D2E915B9-A6C3-3001-B945-6D2CE3350B89}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67FBD4BD-8504-359D-8272-1586C9765D09} = {67FBD4BD-8504-359D-8272-1586C9765D09}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
