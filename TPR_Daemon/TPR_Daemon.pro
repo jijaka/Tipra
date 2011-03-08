@@ -1,9 +1,9 @@
+
 ! include( $$(TPR_SRC)/common.pri ) {
     error( Couldn't find the common.pri file! )
 }
 
 CONFIG += console
-QT -= gui core sql
 TARGET = TPR_Daemon
 TEMPLATE = app
 SOURCES += TPR_Daemon_JobInfo.cpp \

@@ -116,3 +116,19 @@ bool TPR_Bank_Dao::insertRecord(QList<QString> args)
 	}
 	return result;
 }
+
+bool TPR_Bank_Dao::insertRecord(LPCTSTR printer, LPCTSTR document, int pages, LPCTSTR status)
+{
+	QString strArg;
+	QList<QString> args;
+	args.push_back(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+	args.push_back(QString::fromWCharArray(printer));
+	args.push_back(QString::fromWCharArray(document));
+	if ( pages <= 0)
+		strArg="";
+	else 
+		strArg = QString("%1").arg(pages);
+	args.push_back(strArg);
+	args.push_back(QString::fromWCharArray(status));
+	return insertRecord(args);
+}

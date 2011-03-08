@@ -13,6 +13,7 @@ TPR_GUI_App::TPR_GUI_App()
     m_pTrayIcon = new QSystemTrayIcon(icon);
     createMenu();
     m_pTrayIcon->show();
+	m_pTrayIcon->showMessage("Tipra User Interface.", "Right click to use it.");
 }
 
 void TPR_GUI_App::createMenu()

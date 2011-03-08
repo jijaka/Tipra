@@ -9,7 +9,7 @@ namespace TPR_GUI{
 	static  QDate beginOfMonth()
 	{
 		QDate cur = QDate::currentDate();
-		return QDate(cur.year(),cur.month(),0);
+		return QDate(cur.year(),cur.month(),1);
 	}
 }
 
