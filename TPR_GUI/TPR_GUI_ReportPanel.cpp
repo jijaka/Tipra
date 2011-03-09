@@ -20,7 +20,7 @@ TPR_GUI_ReportPanel::TPR_GUI_ReportPanel(QWidget *parent)
 	m_pFromDate = NULL;
 	m_pToDate = NULL;
 	m_pAvaliblePrinters = NULL;
-	setWindowTitle("Tipra: Report Generator");
+	setWindowTitle(tr("Tipra: Report Generator"));
 	initialize();
 	setWindowIcon(QIcon("C:/Development/Tipra/etc/icon_printer.png"));
 	m_pDaoTipra = new TPR_Bank_Dao("C:/Development/Tipra/etc/tpr_bank.db");
@@ -44,7 +44,7 @@ void TPR_GUI_ReportPanel::initialize()
 	QSpacerItem* pHSpacer;
 
 	//Label
-    QLabel* pReportLabel = new QLabel("Generate report:");
+    QLabel* pReportLabel = new QLabel(tr("Generate report:"));
 	pVLay->addWidget(pReportLabel);
 
 	//From .. To
@@ -52,10 +52,10 @@ void TPR_GUI_ReportPanel::initialize()
 	pHLay->setMargin(LAY_MARGIN);
     pHLay->setSpacing(LAY_SPACING);
 	QIcon iconCalendar("C:/Development/Tipra/etc/icon_calendar.png");
-	QLabel* pFromLabel = new QLabel("From:");
+	QLabel* pFromLabel = new QLabel(tr("From:"));
 	m_pFromDate = new QDateEdit( TPR_GUI::beginOfMonth() );
 	m_pFromDate->setCalendarPopup(true);
-	QLabel* pToLabel = new QLabel("To:");
+	QLabel* pToLabel = new QLabel(tr("To:"));
 	m_pToDate =  new QDateEdit ( QDate::currentDate() );
 	m_pToDate->setCalendarPopup(true);
 	pHLay->addWidget(pFromLabel);
@@ -69,7 +69,7 @@ void TPR_GUI_ReportPanel::initialize()
 	pVLay->addLayout(pHLay);
 
 	//Printers
-	QLabel* pPrintersLabel = new QLabel("Printers:");
+	QLabel* pPrintersLabel = new QLabel(tr("Printers:"));
 	m_pAvaliblePrinters = new QTableWidget(5,2);
 	pVLay->addWidget(pPrintersLabel);
 	pVLay->addWidget(m_pAvaliblePrinters);
@@ -78,7 +78,7 @@ void TPR_GUI_ReportPanel::initialize()
 	pHLay = new QHBoxLayout();
 	pHLay->setMargin(LAY_MARGIN);
     pHLay->setSpacing(LAY_SPACING);
-	QLabel* pSaveAsLabel = new QLabel("Save as:");
+	QLabel* pSaveAsLabel = new QLabel(tr("Save as:"));
 	m_pPathEdit = new QLineEdit( QDir::currentPath() );
 	m_pGetPath = new QPushButton("...");
 	m_pGetPath->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed));
@@ -89,7 +89,7 @@ void TPR_GUI_ReportPanel::initialize()
 	pVLay->addLayout(pHLay);
 
 	//Create...
-	m_pGenerate = new QPushButton(" Generate ");
+	m_pGenerate = new QPushButton(tr("Generate"));
 	m_pGenerate->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed));
 	m_pGenerate->setMaximumSize(150, 30);
 	pVLay->addWidget(m_pGenerate);
@@ -121,7 +121,7 @@ void TPR_GUI_ReportPanel::onChangePath()
 	QString filePath ("");
 	if( QDir(fileName).exists() )
 		filePath = QDir(fileName).absolutePath();
-	fileName = QFileDialog::getOpenFileName(this, "Open File", filePath);
+	fileName = QFileDialog::getOpenFileName(this, tr("Open File"), filePath);
 	if(!fileName.isEmpty())
 		m_pPathEdit->setText(fileName);
 }

@@ -4,6 +4,8 @@ WARNINGS += -Wall
 
 CONFIG += Debug qt
 QT = core sql
+TRANSLATIONS = ../etc/tpr_lang_ru.ts
+CODECFORSRC  = UTF-8
 # The following keeps the generated files at least somewhat separate 
 # from the source files.
 OBJECTS_DIR = $$(TPR_SRC)/tmp/.obj
