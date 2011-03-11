@@ -1,11 +1,12 @@
 #include "TPR_Daemon_Watcher.h"
+#include <iostream>
 
 TPR_Daemon_Watcher::TPR_Daemon_Watcher(LPCTSTR strPrinter)
 {
 	m_strPrinter = strPrinter;
 
-	m_hEventStopRequested = CreateEvent ( NULL , false , false , L"StopRequested" );
-	m_hEventThreadDone = CreateEvent ( NULL , true , false , L"ThreadDone" );
+	m_hEventStopRequested = CreateEvent ( NULL , false , false , "StopRequested" );
+	m_hEventThreadDone = CreateEvent ( NULL , true , false , "ThreadDone" );
 }
 
 DWORD WINAPI ThreadFunc(LPVOID lpParam) 
@@ -148,7 +149,9 @@ DWORD TPR_Daemon_Watcher::ThreadFunc( void )
 
 					
                     // TODO: Here must be data processing!!!
-					printf("Sexy data process\n"); //!!!
+					std::cout << pJobInfo->GetUser() << " " << pJobInfo->GetPort().c_str() << " "
+						<< pJobInfo->GetDocument().c_str() << " " << pJobInfo->GetPagesPrinted() << "/" << pJobInfo->GetTotalPages() 
+						<< " " << pJobInfo->GetStatus().c_str() << std::endl;
                 }
             }
 

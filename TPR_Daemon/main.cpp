@@ -1,10 +1,11 @@
+#include "TPR_Daemon_Watcher.h"
 #include <windows.h>
 #include <iostream>
-#include "TPR_Daemon_Watcher.h"
+
 
 int main()
 {
-	LPCTSTR strPrinter = L"Microsoft XPS Document Writer";
+	LPCTSTR strPrinter = "Epson Stylus COLOR 670 ESC/P 2";
 	TPR_Daemon_Watcher myWatcher(strPrinter);
 	myWatcher.Watch();
 	std::cout << "Watching" << std::endl;

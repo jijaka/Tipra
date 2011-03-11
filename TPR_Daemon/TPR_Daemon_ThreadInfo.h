@@ -44,12 +44,12 @@ public:
 
     void SetStopRequestedEvent( LPCSTR strStopEventName )
 	{
-        m_hEventStopRequested = OpenEvent ( EVENT_ALL_ACCESS , false, (LPCWSTR) strStopEventName);
+        m_hEventStopRequested = OpenEvent ( EVENT_ALL_ACCESS , false, strStopEventName);
     }
 
     void SetThreadDoneEvent( LPCSTR strDoneEventName )
     {
-        m_hEventThreadDone = OpenEvent ( EVENT_ALL_ACCESS , false, (LPCWSTR) strDoneEventName);
+        m_hEventThreadDone = OpenEvent ( EVENT_ALL_ACCESS , false, strDoneEventName);
     }
 };
 
