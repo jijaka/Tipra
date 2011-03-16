@@ -21,7 +21,6 @@ public:
 
 public slots:
 	void onGenerate();
-	void onChangePath();
 
 protected:
      void closeEvent(QCloseEvent *event);
@@ -37,8 +36,6 @@ private:
 	QPushButton*	m_pGenerate;
 	QPushButton*	m_pSelectAll;
 	QPushButton*	m_pDeselectAll;
-	QPushButton*	m_pGetPath;
-	QLineEdit*		m_pPathEdit;
 	QDateTimeEdit*	m_pFromDate;
 	QDateTimeEdit*	m_pToDate;
 	QTableWidget*	m_pAvaliblePrinters;

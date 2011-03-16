@@ -15,8 +15,6 @@ TPR_GUI_ReportPanel::TPR_GUI_ReportPanel(QWidget *parent)
 	m_pGenerate = NULL;
 	m_pSelectAll = NULL;
 	m_pDeselectAll = NULL;
-	m_pGetPath = NULL;
-	m_pPathEdit = NULL;
 	m_pFromDate = NULL;
 	m_pToDate = NULL;
 	m_pAvaliblePrinters = NULL;
@@ -41,8 +39,7 @@ void TPR_GUI_ReportPanel::initialize()
 	QHBoxLayout* pHLay;
     pVLay->setMargin(LAY_MARGIN);
     pVLay->setSpacing(LAY_SPACING);
-	QSpacerItem* pHSpacer;
-
+	
 	//Label
     QLabel* pReportLabel = new QLabel(tr("Generate report:"));
 	pVLay->addWidget(pReportLabel);
@@ -60,43 +57,34 @@ void TPR_GUI_ReportPanel::initialize()
 	m_pToDate->setCalendarPopup(true);
 	pHLay->addWidget(pFromLabel);
 	pHLay->addWidget(m_pFromDate);
-	pHSpacer = new QSpacerItem(15,0,QSizePolicy::Maximum);
-	pHLay->addSpacerItem(pHSpacer);
+	pHLay->insertSpacing(-1,15);
 	pHLay->addWidget(pToLabel);
 	pHLay->addWidget(m_pToDate);
-	pHSpacer = new QSpacerItem(0,0,QSizePolicy::Expanding);
-	pHLay->addSpacerItem(pHSpacer);
+	pHLay->insertStretch(-1);
 	pVLay->addLayout(pHLay);
 
-	//Printers
+	//Printers & Generate
 	QLabel* pPrintersLabel = new QLabel(tr("Printers:"));
 	m_pAvaliblePrinters = new QTableWidget(5,2);
-	pVLay->addWidget(pPrintersLabel);
-	pVLay->addWidget(m_pAvaliblePrinters);
-	
-	//Save as:
 	pHLay = new QHBoxLayout();
+	QVBoxLayout* pVSelectLay = new QVBoxLayout();
 	pHLay->setMargin(LAY_MARGIN);
     pHLay->setSpacing(LAY_SPACING);
-	QLabel* pSaveAsLabel = new QLabel(tr("Save as:"));
-	m_pPathEdit = new QLineEdit( QDir::currentPath() );
-	m_pGetPath = new QPushButton("...");
-	m_pGetPath->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed));
-	m_pGetPath->setMaximumSize(30, 20);
-	pHLay->addWidget( pSaveAsLabel );
-	pHLay->addWidget( m_pPathEdit );
-	pHLay->addWidget( m_pGetPath );
-	pVLay->addLayout(pHLay);
-
-	//Create...
+	m_pSelectAll = new QPushButton(tr("Select All"));
+	m_pDeselectAll = new QPushButton(tr("Deselect All"));
+	pVLay->addWidget(pPrintersLabel);			//Label
+	pHLay->addWidget(m_pAvaliblePrinters);		//Label/List
+	pVSelectLay->addWidget(m_pSelectAll);		//Label/List|Select
+	pVSelectLay->addWidget(m_pDeselectAll);		//Label/List|Select/Deselect
+	pVSelectLay->insertStretch(-1);
 	m_pGenerate = new QPushButton(tr("Generate"));
 	m_pGenerate->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed));
 	m_pGenerate->setMaximumSize(150, 30);
-	pVLay->addWidget(m_pGenerate);
-
+	pVSelectLay->addWidget(m_pGenerate);		//Label/List|Select/Deselect ... Generate
+	pHLay->addLayout(pVSelectLay);
+	pVLay->addLayout(pHLay);
 	setLayout(pVLay);
 
-	connect( m_pGetPath, SIGNAL(clicked()), this, SLOT(onChangePath()) );
 	connect( m_pGenerate, SIGNAL(clicked()), this, SLOT(onGenerate()) );
 }
 
@@ -112,18 +100,11 @@ void TPR_GUI_ReportPanel::initialize()
  }
 
 void TPR_GUI_ReportPanel::onGenerate(){
-	QMessageBox(QMessageBox::Information, "Not", "Implemented yet... :(", QMessageBox::Cancel).exec();
-}
-
-void TPR_GUI_ReportPanel::onChangePath()
-{
-	QString fileName = m_pPathEdit->text();
-	QString filePath ("");
-	if( QDir(fileName).exists() )
-		filePath = QDir(fileName).absolutePath();
-	fileName = QFileDialog::getOpenFileName(this, tr("Open File"), filePath);
-	if(!fileName.isEmpty())
-		m_pPathEdit->setText(fileName);
+	QString defFile = QString(tr("/%1-tpr-stat.csv"))
+		.arg(QDate::currentDate().toString("ddMMyy")); 
+	defFile = QDir::currentPath() + defFile;
+	QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                            defFile, tr("Text CSV (*.csv)"));
 }
 
 void TPR_GUI_ReportPanel::updatePrinterInfo()
